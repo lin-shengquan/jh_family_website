@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import { Calendar, Tag, ArrowLeft, Heart } from 'lucide-react';
 
@@ -162,11 +161,11 @@ export default function Diary() {
               <h3 className="text-2xl font-bold mb-2">幸福之家</h3>
               <p className="text-white/70">温馨和谐，幸福美满</p>
             </div>
-            <div className="flex items-center space-x-6">
-              <Link to="/" className="text-white/70 hover:text-white transition-colors">首页</Link>
-              <Link to="/family" className="text-white/70 hover:text-white transition-colors">家庭介绍</Link>
-              <Link to="/gallery" className="text-white/70 hover:text-white transition-colors">照片相册</Link>
-              <Link to="/diary" className="text-white/70 hover:text-white transition-colors">生活日记</Link>
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
+              <a href="/" className="text-white/70 hover:text-white transition-colors">首页</a>
+              <a href="/family" className="text-white/70 hover:text-white transition-colors">家庭介绍</a>
+              <a href="/gallery" className="text-white/70 hover:text-white transition-colors">照片相册</a>
+              <a href="/diary" className="text-white/70 hover:text-white transition-colors">生活日记</a>
             </div>
           </div>
           <div className="border-t border-white/20 mt-8 pt-8 text-center text-white/50 text-sm">

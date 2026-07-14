@@ -4,9 +4,14 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/jh_family_website/',
   plugins: [
-    react(),
+    react({
+      babel: {
+        plugins: [
+          'react-dev-locator',
+        ],
+      },
+    }),
     tsconfigPaths(),
   ],
   server: {

@@ -12,3 +12,32 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+html,
+body,
+#root {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+@media (max-width: 640px) {
+  h1,
+  h2,
+  h3,
+  p,
+  a,
+  button {
+    overflow-wrap: anywhere;
+  }
+
+  .min-h-screen {
+    min-height: 100svh;
+  }
+}

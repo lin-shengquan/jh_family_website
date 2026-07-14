@@ -23,8 +23,3 @@ dist-ssr
 *.sln
 *.sw?
 .vite
-
-# Local planning/docs
-.trae/
-README.md
-readme.txt

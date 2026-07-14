@@ -2,13 +2,11 @@ import Navbar from '@/components/Navbar';
 import { ChevronRight, Heart, Camera, BookOpen, Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const assetUrl = (file: string) => `${import.meta.env.BASE_URL}${file}`;
-
 const latestPhotos = [
-  { id: 1, title: '家庭聚会', src: assetUrl('father.png'), date: '2024-01-15' },
-  { id: 2, title: '旅行时光', src: assetUrl('mother.png'), date: '2024-01-10' },
-  { id: 3, title: '日常生活', src: assetUrl('me.png'), date: '2024-01-08' },
-  { id: 4, title: '温馨时刻', src: assetUrl('sister.png'), date: '2024-01-05' },
+  { id: 1, title: '家庭聚会', src: '/father.png', date: '2024-01-15' },
+  { id: 2, title: '旅行时光', src: '/mother.png', date: '2024-01-10' },
+  { id: 3, title: '日常生活', src: '/me.png', date: '2024-01-08' },
+  { id: 4, title: '温馨时刻', src: '/sister.png', date: '2024-01-05' },
 ];
 
 const latestDiaries = [
@@ -22,7 +20,7 @@ export default function Home() {
     <div className="min-h-screen bg-[#FAF8F5]">
       <Navbar />
       
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen py-24 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#FDF6E3] via-[#F5A623]/20 to-[#8B7355]/10" />
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-20 left-10 w-32 h-32 bg-[#F5A623] rounded-full blur-3xl" />
@@ -73,7 +71,7 @@ export default function Home() {
 
       <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="flex items-center justify-between mb-12">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-12">
             <div>
               <h2 className="text-3xl font-bold text-[#5D4E37] mb-2">最新照片</h2>
               <p className="text-[#8B7355]">记录生活中的美好瞬间</p>
@@ -105,7 +103,7 @@ export default function Home() {
 
       <section className="py-20 px-4 bg-[#FDF6E3]">
         <div className="max-w-6xl mx-auto">
-          <div className="flex items-center justify-between mb-12">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-12">
             <div>
               <h2 className="text-3xl font-bold text-[#5D4E37] mb-2">生活日记</h2>
               <p className="text-[#8B7355]">记录每一天的生活点滴</p>
@@ -171,7 +169,7 @@ export default function Home() {
               <h3 className="text-2xl font-bold mb-2">幸福之家</h3>
               <p className="text-white/70">温馨和谐，幸福美满</p>
             </div>
-            <div className="flex items-center space-x-6">
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
               <Link to="/" className="text-white/70 hover:text-white transition-colors">首页</Link>
               <Link to="/family" className="text-white/70 hover:text-white transition-colors">家庭介绍</Link>
               <Link to="/gallery" className="text-white/70 hover:text-white transition-colors">照片相册</Link>

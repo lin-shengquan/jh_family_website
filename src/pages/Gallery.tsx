@@ -1,9 +1,6 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import { X, ChevronLeft, ChevronRight, Calendar, Tag } from 'lucide-react';
-
-const assetUrl = (file: string) => `${import.meta.env.BASE_URL}${file}`;
 
 const categories = [
   { id: 'all', name: '全部', description: '所有照片' },
@@ -13,14 +10,14 @@ const categories = [
 ];
 
 const photos = [
-  { id: 1, category: 'family', title: '春节全家福', src: assetUrl('father.png'), date: '2024-02-10', description: '一家人团团圆圆过大年' },
-  { id: 2, category: 'family', title: '周末聚餐', src: assetUrl('mother.png'), date: '2024-01-28', description: '妈妈做了一桌丰盛的饭菜' },
-  { id: 3, category: 'travel', title: '海边度假', src: assetUrl('me.png'), date: '2024-01-15', description: '阳光、沙滩、海浪' },
-  { id: 4, category: 'travel', title: '山间漫步', src: assetUrl('sister.png'), date: '2024-01-08', description: '呼吸新鲜空气，欣赏大自然' },
-  { id: 5, category: 'daily', title: '我的生日', src: assetUrl('me.png'), date: '2024-01-05', description: '全家人一起庆祝生日' },
-  { id: 6, category: 'daily', title: '妹妹画画', src: assetUrl('mother.png'), date: '2023-12-28', description: '小画家正在创作中' },
-  { id: 7, category: 'family', title: '中秋节赏月', src: assetUrl('me.png'), date: '2023-09-17', description: '月圆人团圆' },
-  { id: 8, category: 'travel', title: '古镇游', src: assetUrl('sister.png'), date: '2023-08-20', description: '感受传统文化的魅力' },
+  { id: 1, category: 'family', title: '春节全家福', src: '/father.png', date: '2024-02-10', description: '一家人团团圆圆过大年' },
+  { id: 2, category: 'family', title: '周末聚餐', src: '/mother.png', date: '2024-01-28', description: '妈妈做了一桌丰盛的饭菜' },
+  { id: 3, category: 'travel', title: '海边度假', src: '/me.png', date: '2024-01-15', description: '阳光、沙滩、海浪' },
+  { id: 4, category: 'travel', title: '山间漫步', src: '/sister.png', date: '2024-01-08', description: '呼吸新鲜空气，欣赏大自然' },
+  { id: 5, category: 'daily', title: '我的生日', src: '/me.png', date: '2024-01-05', description: '全家人一起庆祝生日' },
+  { id: 6, category: 'daily', title: '妹妹画画', src: '/mother.png', date: '2023-12-28', description: '小画家正在创作中' },
+  { id: 7, category: 'family', title: '中秋节赏月', src: '/me.png', date: '2023-09-17', description: '月圆人团圆' },
+  { id: 8, category: 'travel', title: '古镇游', src: '/sister.png', date: '2023-08-20', description: '感受传统文化的魅力' },
 ];
 
 export default function Gallery() {
@@ -119,11 +116,11 @@ export default function Gallery() {
               <h3 className="text-2xl font-bold mb-2">幸福之家</h3>
               <p className="text-white/70">温馨和谐，幸福美满</p>
             </div>
-            <div className="flex items-center space-x-6">
-              <Link to="/" className="text-white/70 hover:text-white transition-colors">首页</Link>
-              <Link to="/family" className="text-white/70 hover:text-white transition-colors">家庭介绍</Link>
-              <Link to="/gallery" className="text-white/70 hover:text-white transition-colors">照片相册</Link>
-              <Link to="/diary" className="text-white/70 hover:text-white transition-colors">生活日记</Link>
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
+              <a href="/" className="text-white/70 hover:text-white transition-colors">首页</a>
+              <a href="/family" className="text-white/70 hover:text-white transition-colors">家庭介绍</a>
+              <a href="/gallery" className="text-white/70 hover:text-white transition-colors">照片相册</a>
+              <a href="/diary" className="text-white/70 hover:text-white transition-colors">生活日记</a>
             </div>
           </div>
           <div className="border-t border-white/20 mt-8 pt-8 text-center text-white/50 text-sm">
@@ -166,7 +163,7 @@ export default function Gallery() {
             <div className="mt-4 text-center">
               <h3 className="text-white text-xl font-bold mb-2">{selectedPhoto.title}</h3>
               <p className="text-white/70">{selectedPhoto.description}</p>
-              <div className="flex items-center justify-center space-x-6 mt-3 text-white/50 text-sm">
+              <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-3 text-white/50 text-sm">
                 <span>{selectedPhoto.date}</span>
                 <span>{categories.find(c => c.id === selectedPhoto.category)?.name}</span>
               </div>

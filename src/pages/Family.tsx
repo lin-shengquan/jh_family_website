@@ -1,14 +1,11 @@
 import Navbar from '@/components/Navbar';
-import { Link } from 'react-router-dom';
 import { Heart, Calendar, MapPin, Award } from 'lucide-react';
 
-const assetUrl = (file: string) => `${import.meta.env.BASE_URL}${file}`;
-
 const familyMembers = [
-  { id: 1, name: '爸爸', role: '父亲', avatar: assetUrl('father.png'), bio: '家里的顶梁柱，热爱工作和家庭，是我们最坚实的后盾。工作之余喜欢运动和阅读，总是用行动教会我们责任与担当。' },
-  { id: 2, name: '妈妈', role: '母亲', avatar: assetUrl('mother.png'), bio: '温柔贤惠，照顾全家的生活起居。她的厨艺堪称一绝，每一顿饭都充满了爱的味道。是家里的灵魂人物，用爱温暖着每一个人。' },
-  { id: 3, name: '我', role: '儿子', avatar: assetUrl('me.png'), bio: '阳光开朗，热爱运动，尤其喜欢足球。正在努力学习，追求自己的梦想。是妹妹的好榜样，也是父母的骄傲。' },
-  { id: 4, name: '妹妹', role: '女儿', avatar: assetUrl('sister.png'), bio: '聪明可爱，活泼好动，是家里的开心果。喜欢画画和跳舞，有着丰富的想象力。给我们的生活带来了无尽的欢乐。' },
+  { id: 1, name: '爸爸', role: '父亲', avatar: '/father.png', bio: '家里的顶梁柱，热爱工作和家庭，是我们最坚实的后盾。工作之余喜欢运动和阅读，总是用行动教会我们责任与担当。' },
+  { id: 2, name: '妈妈', role: '母亲', avatar: '/mother.png', bio: '温柔贤惠，照顾全家的生活起居。她的厨艺堪称一绝，每一顿饭都充满了爱的味道。是家里的灵魂人物，用爱温暖着每一个人。' },
+  { id: 3, name: '我', role: '儿子', avatar: '/me.png', bio: '阳光开朗，热爱运动，尤其喜欢足球。正在努力学习，追求自己的梦想。是妹妹的好榜样，也是父母的骄傲。' },
+  { id: 4, name: '妹妹', role: '女儿', avatar: '/sister.png', bio: '聪明可爱，活泼好动，是家里的开心果。喜欢画画和跳舞，有着丰富的想象力。给我们的生活带来了无尽的欢乐。' },
 ];
 
 const familyTimeline = [
@@ -161,11 +158,11 @@ export default function Family() {
               <h3 className="text-2xl font-bold mb-2">幸福之家</h3>
               <p className="text-white/70">温馨和谐，幸福美满</p>
             </div>
-            <div className="flex items-center space-x-6">
-              <Link to="/" className="text-white/70 hover:text-white transition-colors">首页</Link>
-              <Link to="/family" className="text-white/70 hover:text-white transition-colors">家庭介绍</Link>
-              <Link to="/gallery" className="text-white/70 hover:text-white transition-colors">照片相册</Link>
-              <Link to="/diary" className="text-white/70 hover:text-white transition-colors">生活日记</Link>
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
+              <a href="/" className="text-white/70 hover:text-white transition-colors">首页</a>
+              <a href="/family" className="text-white/70 hover:text-white transition-colors">家庭介绍</a>
+              <a href="/gallery" className="text-white/70 hover:text-white transition-colors">照片相册</a>
+              <a href="/diary" className="text-white/70 hover:text-white transition-colors">生活日记</a>
             </div>
           </div>
           <div className="border-t border-white/20 mt-8 pt-8 text-center text-white/50 text-sm">

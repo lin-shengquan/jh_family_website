@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -13,6 +14,10 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
 
   const navLinks = [
     { path: '/', label: '首页', icon: Home },
@@ -29,7 +34,7 @@ export default function Navbar() {
     }`}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="text-2xl font-bold text-[#5D4E37]">
+          <Link to="/" className="text-xl sm:text-2xl font-bold text-[#5D4E37]">
             幸福之家
           </Link>
           
@@ -54,12 +59,47 @@ export default function Navbar() {
             })}
           </div>
 
-          <button className="md:hidden p-2 rounded-lg hover:bg-[#FDF6E3] text-[#5D4E37]">
+          <button
+            type="button"
+            className="md:hidden p-2 rounded-lg hover:bg-[#FDF6E3] text-[#5D4E37]"
+            aria-expanded={menuOpen}
+            aria-label="打开导航菜单"
+            onClick={() => setMenuOpen((open) => !open)}
+          >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              {menuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18 18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
             </svg>
           </button>
         </div>
+
+        {menuOpen && (
+          <div className="md:hidden pb-4">
+            <div className="grid gap-2 rounded-xl bg-white/95 p-2 shadow-lg border border-[#8B7355]/10">
+              {navLinks.map((link) => {
+                const Icon = link.icon;
+                const isActive = location.pathname === link.path;
+                return (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    className={`flex items-center space-x-2 px-3 py-3 rounded-lg transition-all duration-200 ${
+                      isActive
+                        ? 'bg-[#F5A623]/10 text-[#F5A623]'
+                        : 'text-[#5D4E37] hover:bg-[#FDF6E3] hover:text-[#F5A623]'
+                    }`}
+                  >
+                    <Icon size={18} />
+                    <span className="font-medium">{link.label}</span>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );
