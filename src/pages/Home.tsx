@@ -2,11 +2,13 @@ import Navbar from '@/components/Navbar';
 import { ChevronRight, Heart, Camera, BookOpen, Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+const assetUrl = (file: string) => `${import.meta.env.BASE_URL}${file}`;
+
 const latestPhotos = [
-  { id: 1, title: '家庭聚会', src: '/father.png', date: '2024-01-15' },
-  { id: 2, title: '旅行时光', src: '/mother.png', date: '2024-01-10' },
-  { id: 3, title: '日常生活', src: '/me.png', date: '2024-01-08' },
-  { id: 4, title: '温馨时刻', src: '/sister.png', date: '2024-01-05' },
+  { id: 1, title: '家庭聚会', src: assetUrl('father.png'), date: '2024-01-15' },
+  { id: 2, title: '旅行时光', src: assetUrl('mother.png'), date: '2024-01-10' },
+  { id: 3, title: '日常生活', src: assetUrl('me.png'), date: '2024-01-08' },
+  { id: 4, title: '温馨时刻', src: assetUrl('sister.png'), date: '2024-01-05' },
 ];
 
 const latestDiaries = [
