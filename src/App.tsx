@@ -6,7 +6,7 @@ import Diary from "@/pages/Diary";
 
 export default function App() {
   return (
-    <Router basename={import.meta.env.BASE_URL}>
+    <Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/family" element={<Family />} />
